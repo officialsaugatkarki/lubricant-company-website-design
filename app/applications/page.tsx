@@ -1,0 +1,12 @@
+import { ArrowRight, Bike, CarFront, Factory } from 'lucide-react'
+import { ArrowLink, Eyebrow, PageIntro, PageShell } from '@/components/site-header'
+
+const applications = [
+  ['Automotive', 'The everyday becomes exceptional.', 'Passenger vehicles, hybrids, performance cars, and everything between.', '/category-automotive.png', CarFront],
+  ['Motorcycles', 'Lightweight. High-revving. Ready.', 'Precision lubrication for engines that live closer to the edge.', '/category-motorcycle.png', Bike],
+  ['Industrial', 'Uptime is the standard.', 'Working fluids for equipment that cannot afford a pause.', '/category-industrial.png', Factory],
+]
+
+export default function ApplicationsPage() {
+  return <PageShell><PageIntro eyebrow="Applications" title={<>Made for the<br /><span className="text-[#e7442e]">way you move.</span></>} description="Different machines. Different pressures. One uncompromising approach to protection and performance." /><section className="px-6 py-20 lg:px-12 lg:py-32"><div className="grid gap-5 lg:grid-cols-3">{applications.map(([name, tagline, detail, image, Icon], index) => <article key={name} className="group relative min-h-[540px] overflow-hidden bg-[#dfe2e4]"><img src={image} alt={`${name} application`} className="absolute inset-0 size-full object-cover mix-blend-multiply opacity-75 transition duration-700 group-hover:scale-105 group-hover:opacity-95" /><div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" /><div className="relative flex h-full flex-col justify-between p-7 text-white"><span className="text-xs font-bold tracking-widest text-white/60">0{index + 1} / 03</span><div><Icon className="mb-8 text-[#ff8069]" /><h2 className="text-4xl font-black tracking-[-0.06em]">{name}</h2><h3 className="mt-3 text-lg font-bold">{tagline}</h3><p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">{detail}</p><a href="/products" className="mt-8 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#ff8069]">View formulas <ArrowRight /></a></div></div></article>)}</div></section><section className="bg-[#e7442e] px-6 py-20 lg:px-12 lg:py-28"><div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end"><div><Eyebrow>Not sure where to begin?</Eyebrow><h2 className="max-w-3xl text-5xl font-black leading-[0.9] tracking-[-0.07em] lg:text-8xl">Let&apos;s find<br />your fit.</h2></div><ArrowLink href="/contact">Use the product finder</ArrowLink></div></section></PageShell>
+}
